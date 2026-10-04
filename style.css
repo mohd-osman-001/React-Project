@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* background-color: #ffffff; */
+}
+
+.HeadContainer {
+  background-color: rgba(134, 145, 145, 0.747);
+  height: 5rem;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 50px;
+  border-radius: 50px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.HeadContainer > .headImg {
+  width: 7rem;
+  border-radius: 50%;
+}
+
+.HeadContainer > .searchEng {
+  width: 750px;
+  height: 2.5rem;
+  border-radius: 20px;
+}
+
+.HeadContainer > .searchEng::placeholder {
+  text-align: center;
+}
+
+.HeadContainer > .navItems {
+  margin-left: 15px;
+}
+
+.HeadContainer > .navItems > ul {
+  /* margin-right: 100px; */
+  display: flex;
+  list-style-type: none;
+  gap: 25px;
+}
+
+.bodyContainer {
+  margin: 25px;
+  background-color: #ffffff;
+}
+
+.bodyContainer > .bc1 {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.bodyContainer > .bc1 > .dishCard1 {
+  height: 350px;
+  width: 250px;
+  /* border: 1px solid black; */
+  border-radius: 15px;
+  margin: 20px;
+  transition: scale 0.1s ease;
+  background-color: #ffffff;
+}
+
+.bodyContainer > .bc1 > .dishCard1:hover {
+  scale: 0.98;
+}
+
+.bodyContainer > .bc1 > .dishCard1 > .dsImg {
+  height: 160px;
+  width: 100%;
+  border-radius: 15px;
+  padding-bottom: 20px;
+}
+
+.bodyContainer > .bc1 > .dishCard1 > .dsImg > .dishImg {
+  height: 165px;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+}
+
+.bodyContainer > .bc1 > .dishCard1 > .dsContent {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.bodyContainer .dishCard1 .dsContent .cuisine {
+  color: #1f2124;
+}
+
+.bodyContainer .dishCard1 .dsContent .rate {
+  color: #1f2124;
+}
+
+.bodyContainer .dishCard1 .dsContent .rate .star {
+  color: #1d923c;
+}
+
+.bodyContainer .dishCard1 .dsContent .deliveryTimeCost {
+  color: #1f2124;
+}
+
+.bodyContainer > .btn{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.footer {
+  height: 5rem;
+  background-color: rgba(134, 145, 145, 0.747);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

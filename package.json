@@ -1,0 +1,21 @@
+{
+  "name": "react-swiggy-app",
+  "version": "1.0.0",
+  "description": "- create all three html, css, and Js files\r - link css and js in html\r - initialize NPM using npm init -y\r -",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx parcel index.html",
+    "build": "npx parcel build index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  }
+}
