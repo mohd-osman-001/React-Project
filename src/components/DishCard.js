@@ -8,21 +8,22 @@ const DishCard = ({ resObj }) => {
         <img
           src={
             "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-            imgId
+            resObj.info.cloudinaryImageId
           }
+          alt="res-log"
           className="dishImg"
         />
       </div>
 
       <div className="dsContent">
-        <h3 className="restName">{resName}</h3>
-        <h4 className="cuisine">{cuisine.join(", ")}</h4>
+        <h3 className="restName">{resObj.info.name}</h3>
+        <h4 className="cuisine">{resObj.info.cuisines}</h4>
         <h4 className="rate">
           <span className="star">✰</span>
-          {avgRating} | stars
+          {resObj.info.avgRating} | stars
         </h4>
         <h4 className="deliveryTimeCost">
-          {delieveryTime} mins | {costForTwo} for two
+          {resObj.info.sla.delieveryTime} mins | {resObj.info.costForTwo} for two
         </h4>
       </div>
     </div>
