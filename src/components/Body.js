@@ -2,6 +2,7 @@ import DishCard from "./DishCard";
 // import { resArr } from "../utils/mockData";
 import { useEffect, useState } from "react";
 import API_URL from "../utils/components";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restaurantsArr, setRestaurantsArr] = useState(null);
@@ -9,16 +10,22 @@ const Body = () => {
   async function fetchData() {
     const PData = await fetch(API_URL);
     const Mdata = await PData.json();
-    // console.log(Mdata?.data?.cards[1]?.cared?.card?.greidElements?.infoWithStyle?.restaurants)
-    setRestaurantsArr(Mdata?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    console.log(
+      Mdata?.data?.cards[1]?.cared?.card?.greidElements?.infoWithStyle
+        ?.restaurants,
+    );
+    setRestaurantsArr(
+      Mdata?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants,
+    );
   }
 
-useEffect(()=>{
+  useEffect(() => {
     fetchData();
-}, [])
+  }, []);
 
   if (restaurantsArr == null) {
-    return <div> Waiting</div>;
+    return <div className="shimmerMainCont">{<Shimmer />}</div>;
   } else {
     return (
       <div className="bodyContainer">
@@ -28,7 +35,7 @@ useEffect(()=>{
               console.log("before filter:", restaurantsArr);
 
               let filterdArr = restaurantsArr.filter((elem) => {
-                if (elem["avgRating"] > 4.2) {
+                if (elem.info.avgRating > 4.2) {
                   return true;
                 } else {
                   return false;
@@ -45,7 +52,7 @@ useEffect(()=>{
           </button>
         </div>
         <div className="bc1">
-          {restaurantsArr.map((elem, index) => {
+          {restaurantsArr.map((elem) => {
             return <DishCard key={elem.info.id} resObj={elem} />;
           })}
         </div>
