@@ -17,7 +17,7 @@ const DishCard = ({ resObj }) => {
 
       <div className="dsContent">
         <h3 className="restName">{resObj.info.name}</h3>
-        <h4 className="cuisine">{resObj.info.cuisines}</h4>
+        <h4 className="cuisine">{resObj.info.cuisines.join(", ")}</h4>
         <h4 className="rate">
           <span className="star">✰</span>
           {resObj.info.avgRating} | stars
@@ -25,6 +25,7 @@ const DishCard = ({ resObj }) => {
         <h4 className="deliveryTimeCost">
           {resObj.info.sla.delieveryTime} mins | {resObj.info.costForTwo} for two
         </h4>
+        <h4>{resObj.info.locality}</h4>
       </div>
     </div>
   );
