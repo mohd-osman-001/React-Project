@@ -3,6 +3,7 @@ import DishCard from "./DishCard";
 import { useEffect, useState } from "react";
 import {API_URL} from "../utils/constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [restaurantsArr, setRestaurantsArr] = useState(null);
@@ -35,38 +36,38 @@ const Body = () => {
     fetchData();
   }, [latLong]);
 
-  useEffect(() => {
-    if (!navigator.geolocation) {
-      setError("Geolocation is not supported by your browser.");
-      return;
-    }
+  // useEffect(() => {
+  //   if (!navigator.geolocation) {
+  //     setError("Geolocation is not supported by your browser.");
+  //     return;
+  //   }
 
-    // 2. Success callback function
-    const handleSuccess = (pos) => {
-      const { latitude, longitude } = pos.coords;
-      console.log(
-        "got coordinates:: ",
-        latitude.toFixed(6),
-        longitude.toFixed(6),
-      );
-      setLatLong({
-        lat: latitude.toFixed(6),
-        lng: longitude.toFixed(6),
-      });
-    };
+  //   // 2. Success callback function
+  //   const handleSuccess = (pos) => {
+  //     const { latitude, longitude } = pos.coords;
+  //     console.log(
+  //       "got coordinates:: ",
+  //       latitude.toFixed(6),
+  //       longitude.toFixed(6),
+  //     );
+  //     setLatLong({
+  //       lat: latitude.toFixed(6),
+  //       lng: longitude.toFixed(6),
+  //     });
+  //   };
 
-    // 3. Error callback function
-    const handleError = (err) => {
-      setError(err.message);
-    };
+  //   // 3. Error callback function
+  //   const handleError = (err) => {
+  //     setError(err.message);
+  //   };
 
-    // 4. Request the current position
-    navigator.geolocation.getCurrentPosition(handleSuccess, handleError, {
-      enableHighAccuracy: true, // Request high accuracy (e.g., GPS over cell tower)
-      timeout: 5000, // Time in ms to wait before timing out
-      maximumAge: 0, // Do not use cached locations
-    });
-  }, []);
+  //   // 4. Request the current position
+  //   navigator.geolocation.getCurrentPosition(handleSuccess, handleError, {
+  //     enableHighAccuracy: true, // Request high accuracy (e.g., GPS over cell tower)
+  //     timeout: 5000, // Time in ms to wait before timing out
+  //     maximumAge: 0, // Do not use cached locations
+  //   });
+  // }, []);
 
   if (restaurantsArr == null) {
     return <div className="shimmerMainCont">{<Shimmer />}</div>;
@@ -97,7 +98,7 @@ const Body = () => {
         </div>
         <div className="bc1">
           {restaurantsArr.map((elem) => {
-            return <DishCard key={elem.info.id} resObj={elem} />;
+            return <Link to={`/menu/${elem.info.id}`} key={elem.info.id}><DishCard resObj={elem}/></Link>
           })}
         </div>
       </div>

@@ -56,7 +56,17 @@
   margin: 0 auto;
 }
 
-.bodyContainer > .bc1 > .dishCard1 {
+.bodyContainer > .bc1 >a {
+    height: 350px;
+  width: 250px;
+    border-radius: 15px;
+  margin: 20px;
+  transition: scale 0.1s ease;
+  background-color: #ffffff;
+  flex-wrap: wrap;
+}
+
+.bodyContainer > .bc1 > a >.dishCard1 {
   height: 350px;
   width: 250px;
   /* border: 1px solid black; */
@@ -68,11 +78,11 @@
   /* overflow: hidden; */
 }
 
-.bodyContainer > .bc1 > .dishCard1:hover {
+.bodyContainer > .bc1 >a  >.dishCard1:hover {
   scale: 0.98;
 }
 
-.bodyContainer > .bc1 > .dishCard1 > .dsImg {
+.bodyContainer > .bc1 >a > .dishCard1 > .dsImg {
   height: 160px;
   width: 100%;
   border-radius: 15px;
@@ -80,14 +90,14 @@
   /* object-fit: cover; */
 }
 
-.bodyContainer > .bc1 > .dishCard1 > .dsImg > .dishImg {
+.bodyContainer > .bc1 >a > .dishCard1 > .dsImg > .dishImg {
   height: 165px;
   width: 100%;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
 }
 
-.bodyContainer > .bc1 > .dishCard1 > .dsContent {
+.bodyContainer > .bc1 >a > .dishCard1 > .dsContent {
   width: 90%;
   margin: 0 auto;
   background-color: #ffffff;
