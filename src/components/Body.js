@@ -1,7 +1,7 @@
 import DishCard from "./DishCard";
 // import { resArr } from "../utils/mockData";
 import { useEffect, useState } from "react";
-import API_URL from "../utils/constants";
+import {API_URL} from "../utils/constants";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
