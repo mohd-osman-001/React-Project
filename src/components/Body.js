@@ -8,61 +8,12 @@ import { Link, resolvePath } from "react-router-dom";
 const Body = () => {
   const [restaurantsArr, setRestaurantsArr] = useState(null);
 
-  const getCurrentPosition = () => {
-    return new Promise((resolve, reject) => {
-      let lat = " ";
-      let lng = " ";
-
-      // 1. Check if the browser supports the Geolocation API
-      if (!navigator.geolocation) {
-        console.log("Browser doesn't provide location");
-        reject("Browser doesn't provide locations");
-      }
-
-      // 2. Success callback function
-      const handleSuccess = (pos) => {
-        const { latitude, longitude } = pos.coords;
-        console.log(
-          "got coordinates::",
-          latitude.toFixed(6),
-          longitude.toFixed(6),
-        );
-        lat = latitude.toFixed(6);
-        lng = longitude.toFixed(6);
-        resolve({ lat, lng });
-      };
-
-      // 3. Error callback function
-      const handleError = (err) => {
-        console.log("error happend");
-        reject(err.message);
-      };
-
-      // 4. Request the current position
-      navigator.geolocation.getCurrentPosition(handleSuccess, handleError, {
-        enableHighAccuracy: true, // Request high accuracy (e.g., GPS over cell tower)
-        timeout: 5000, // Time in ms to wait before timing out
-        maximumAge: 0, // Do not use cached locations
-      });
-    });
-  };
-
   async function fetchData() {
-    const latLong = await getCurrentPosition();
-    
-    const response = await fetch(
-      API_URL +
-        `lat=${latLong.lat}&lng=${latLong.lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`,
-    );
+    const response = await fetch(API_URL);
 
     const data = await response.json();
 
     setRestaurantsArr(
-      data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants,
-    );
-
-    console.log(
       data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants,
     );
