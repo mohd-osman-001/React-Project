@@ -9,7 +9,7 @@ import Cart from "./src/components/Cart.js";
 import ErrorPage from "./src/components/ErrorPage.js";
 
 import Contact from "./src/components/Contact.js";
-import RestaurantMenu from "./src/components/RestaurantMenu.js";
+import RestaurantMenuPage from "./src/components/RestaurantMenuPage.js";
 
 const appRouter = createBrowserRouter([
   {
@@ -34,7 +34,7 @@ const appRouter = createBrowserRouter([
       }, 
       {
         path: "/menu/:restaurantId",
-        element: <RestaurantMenu/>
+        element: <RestaurantMenuPage/>
       }
     ],
     errorElement: <ErrorPage/>

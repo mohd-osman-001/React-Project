@@ -56,17 +56,17 @@
   margin: 0 auto;
 }
 
-.bodyContainer > .bc1 >a {
-    height: 350px;
+.bodyContainer > .bc1 > a {
+  height: 350px;
   width: 250px;
-    border-radius: 15px;
+  border-radius: 15px;
   margin: 20px;
   transition: scale 0.1s ease;
   background-color: #ffffff;
   flex-wrap: wrap;
 }
 
-.bodyContainer > .bc1 > a >.dishCard1 {
+.bodyContainer > .bc1 > a > .dishCard1 {
   height: 350px;
   width: 250px;
   /* border: 1px solid black; */
@@ -75,14 +75,15 @@
   transition: scale 0.1s ease;
   background-color: #ffffff;
   flex-wrap: wrap;
+
   /* overflow: hidden; */
 }
 
-.bodyContainer > .bc1 >a  >.dishCard1:hover {
+.bodyContainer > .bc1 > a > .dishCard1:hover {
   scale: 0.98;
 }
 
-.bodyContainer > .bc1 >a > .dishCard1 > .dsImg {
+.bodyContainer > .bc1 > a > .dishCard1 > .dsImg {
   height: 160px;
   width: 100%;
   border-radius: 15px;
@@ -90,16 +91,17 @@
   /* object-fit: cover; */
 }
 
-.bodyContainer > .bc1 >a > .dishCard1 > .dsImg > .dishImg {
+.bodyContainer > .bc1 > a > .dishCard1 > .dsImg > .dishImg {
   height: 165px;
   width: 100%;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
 }
 
-.bodyContainer > .bc1 >a > .dishCard1 > .dsContent {
+.bodyContainer > .bc1 > a > .dishCard1 > .dsContent {
   width: 90%;
   margin: 0 auto;
+  text-decoration: none;
   background-color: #ffffff;
 }
 
@@ -198,3 +200,49 @@
   margin-top: 10px;
 }
 
+.menu-info-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-info-img {
+  margin: 15px 0px;
+  height: 50vh;
+  width: 60vw;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 20px;
+  color: #ff6600;
+  background-color: antiquewhite;
+  padding: 15px;
+  padding: 15px 25px;
+  box-shadow: #0000002a 0px 0px 10px 2px;
+}
+
+.menu-item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  box-shadow: 0px 0px 28px 2px rgba(0, 0, 0, 0.141);
+  border-radius: 10px;
+}
+
+.menu-item-img {
+  object-fit: cover;
+  border-radius: 10px;
+  width: 200px;
+  display: block;
+  margin-right: 20px;
+}

@@ -1,7 +1,7 @@
 import DishCard from "./DishCard";
 // import { resArr } from "../utils/mockData";
 import { useEffect, useState } from "react";
-import { API_URL } from "../utils/constants";
+import { officialSwiggy } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link, resolvePath } from "react-router-dom";
 
@@ -9,7 +9,7 @@ const Body = () => {
   const [restaurantsArr, setRestaurantsArr] = useState(null);
 
   async function fetchData() {
-    const response = await fetch(API_URL);
+    const response = await fetch(officialSwiggy);
 
     const data = await response.json();
 

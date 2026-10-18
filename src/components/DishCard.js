@@ -1,14 +1,16 @@
+import { baseUrl } from "../utils/constants";
+
 const DishCard = ({ resObj }) => {
-  const { resName, cuisine, avgRating, delieveryTime, costForTwo, imgId } =
-    resObj;
+  const { name, cuisines, avgRating, delieveryTime, costForTwo, cloudinaryImageId } =
+    resObj.info;
 
   return (
     <div className="dishCard1">
       <div className="dsImg">
         <img
           src={
-            "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-            resObj.info.cloudinaryImageId
+            baseUrl +
+            cloudinaryImageId
           }
           alt="res-log"
           className="dishImg"
@@ -16,14 +18,14 @@ const DishCard = ({ resObj }) => {
       </div>
 
       <div className="dsContent">
-        <h3 className="restName">{resObj.info.name}</h3>
-        <h4 className="cuisine">{resObj.info.cuisines.join(", ")}</h4>
+        <h3 className="restName">{name}</h3>
+        <h4 className="cuisine">{cuisines.join(", ")}</h4>
         <h4 className="rate">
           <span className="star">✰</span>
-          {resObj.info.avgRating} | stars
+          {avgRating} | stars
         </h4>
         <h4 className="deliveryTimeCost">
-          {resObj.info.sla.delieveryTime} mins | {resObj.info.costForTwo} for two
+          {delieveryTime} mins | {costForTwo} for two
         </h4>
         <h4>{resObj.info.locality}</h4>
       </div>
