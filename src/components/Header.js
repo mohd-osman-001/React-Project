@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
+  const onlineStatus = useOnlineStatus();
+
   return (
     <div className="HeadContainer">
       <img
@@ -15,10 +18,22 @@ const Header = () => {
       />
       <div className="navItems">
         <ul>
-          <li> <Link to="/">Home</Link></li>
-          <li> <Link to="/About">About</Link> </li>
-          <li> <Link to="/Contact" >Contact Us</Link> </li>
-          <li><Link to="/Cart">Cart</Link></li>
+          <li>{onlineStatus ? 'Online 🟢' : 'Offline 🛑'}</li>
+          <li>
+            {" "}
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            {" "}
+            <Link to="/About">About</Link>{" "}
+          </li>
+          <li>
+            {" "}
+            <Link to="/Contact">Contact Us</Link>{" "}
+          </li>
+          <li>
+            <Link to="/Cart">Cart</Link>
+          </li>
         </ul>
       </div>
     </div>
