@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+
+import { useContext } from "react";
 
 const Header = () => {
   const onlineStatus = useOnlineStatus();
+
+  const userOjb = useContext(UserContext);
 
   return (
     <div className="HeadContainer">
@@ -37,6 +42,7 @@ const Header = () => {
           <li>
             <Link to="/grocery">Grocery</Link>
           </li>
+          <li>{userOjb.name}</li>
         </ul>
       </div>
     </div>

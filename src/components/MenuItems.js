@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { baseUrl } from "../utils/constants";
+import UserContext from "../utils/UserContext"
 
-const MenuItems = ({ details }) => {
+const MenuItems = ({dataPassing, details }) => {
   const { name, price, description, imageId, ratings } = details;
+
+  const userObj = useContext(UserContext)
 
   return (
     <div className="menu-item-card">
@@ -18,6 +22,9 @@ const MenuItems = ({ details }) => {
       <div>
         <img alt={name} className="menu-item-img" src={baseUrl + imageId} />
       </div>
+
+      <div>{dataPassing}</div>
+      <div>{userObj.name}</div>
     </div>
   );
 };

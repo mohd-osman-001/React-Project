@@ -1,6 +1,6 @@
 import MenuItems from "./MenuItems";
 
-const RestaurantCategory = ({ category, command, setIndex }) => {
+const RestaurantCategory = ({dataPassing, category, command, setIndex }) => {
   return (
     <div className="category-accordian">
       <div
@@ -19,7 +19,7 @@ const RestaurantCategory = ({ category, command, setIndex }) => {
         <div className="category-body">
           {category.itemCards.map((elem) => {
             return (
-              <MenuItems details={elem.card.info} key={elem.card.info.id} />
+              <MenuItems dataPassing={dataPassing} details={elem.card.info} key={elem.card.info.id} />
             );
           })}
         </div>

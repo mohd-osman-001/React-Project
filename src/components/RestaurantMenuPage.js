@@ -6,6 +6,8 @@ import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenuPage = () => {
 
+  let [dummy, setDummy] = useState("I am dummy data...")
+
   const { restaurantId } = useParams();
 
   const menu = useRestaurantMenu(restaurantId)
@@ -41,6 +43,7 @@ const RestaurantMenuPage = () => {
       {containerArr.map((categories, index) => {
         return (
           <RestaurantCategory
+            dataPassing = {dummy}
             command = {index == showIndex? true: false}
             setIndex = {()=>{
               setShowIndex(index)
