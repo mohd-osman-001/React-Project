@@ -18,7 +18,7 @@ const Header = () => {
       />
       <div className="navItems">
         <ul>
-          <li>{onlineStatus ? 'Online 🟢' : 'Offline 🛑'}</li>
+          <li>{onlineStatus ? <b>Online 🟢</b> : <b>Offline 🛑</b>}</li>
           <li>
             {" "}
             <Link to="/">Home</Link>
@@ -33,6 +33,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/Cart">Cart</Link>
+          </li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
           </li>
         </ul>
       </div>
