@@ -1,27 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import RestaurantMenuInfoCard from "./RestaurantMenuInfoCard";
 import RestaurantCategory from "./RestaurantCategory";
-import { menuApi } from "../utils/constants";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenuPage = () => {
-  const [menu, setMenu] = useState(null);
 
   const { restaurantId } = useParams();
 
-  async function fetchMenuApi() {
-    const response = await fetch(menuApi + restaurantId);
+  const menu = useRestaurantMenu(restaurantId)
 
-    const data = await response.json();
-
-    console.log(data);
-
-    setMenu(data);
-  }
-
-  useEffect(() => {
-    fetchMenuApi();
-  }, []);
+  const [showIndex, setShowIndex] = useState(1);
 
   if (menu == null) {
     return <div>Loading...</div>;
@@ -49,9 +38,13 @@ const RestaurantMenuPage = () => {
     >
       <RestaurantMenuInfoCard menu={menu} />
 
-      {containerArr.map((categories) => {
+      {containerArr.map((categories, index) => {
         return (
           <RestaurantCategory
+            command = {index == showIndex? true: false}
+            setIndex = {()=>{
+              setShowIndex(index)
+            }}
             category={categories.card.card}
             key={categories.card.card.categoryID}
           />
