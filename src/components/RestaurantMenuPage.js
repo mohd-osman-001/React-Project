@@ -49,7 +49,7 @@ const RestaurantMenuPage = () => {
               setShowIndex(index)
             }}
             category={categories.card.card}
-            key={categories.card.card.categoryID}
+            key={categories.card.card.categoryId}
           />
         );
       })}
